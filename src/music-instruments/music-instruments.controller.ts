@@ -8,6 +8,11 @@ export class MusicInstrumentsController {
   constructor(private musicInstrumentsService: MusicInstrumentsService) {
   }
 
+  @Get()
+  async getMusicInstruments():Promise<MusicInstrumentsEntity[]> {
+    return this.musicInstrumentsService.getMusicInstruments();
+  }
+
   @Get('/:id')
   async getMusicInstrument(@Param('id', ParseIntPipe)id: number):Promise<MusicInstrumentsEntity> {
     return this.musicInstrumentsService.getMusicInstrument(id);

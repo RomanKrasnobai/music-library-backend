@@ -11,6 +11,10 @@ export class MusicInstrumentsService {
     private musicInstrumentsRepository: MusicInstrumentsRepository,
   ) {}
 
+  async getMusicInstruments():Promise<MusicInstrumentsEntity[]> {
+    return await this.musicInstrumentsRepository.find();
+  }
+
   async getMusicInstrument(id: number):Promise<MusicInstrumentsEntity> {
     const found = await this.musicInstrumentsRepository.findOne(id);
 
