@@ -11,7 +11,7 @@ export class MusicInstrumentsService {
     private musicInstrumentsRepository: MusicInstrumentsRepository,
   ) {}
 
-  async getMusicInstruments():Promise<MusicInstrumentsEntity[]> {
+  async getAllMusicInstruments():Promise<MusicInstrumentsEntity[]> {
     return await this.musicInstrumentsRepository.find();
   }
 

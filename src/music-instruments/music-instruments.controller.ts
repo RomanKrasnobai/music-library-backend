@@ -10,7 +10,7 @@ export class MusicInstrumentsController {
 
   @Get()
   async getMusicInstruments():Promise<MusicInstrumentsEntity[]> {
-    return this.musicInstrumentsService.getMusicInstruments();
+    return this.musicInstrumentsService.getAllMusicInstruments();
   }
 
   @Get('/:id')
