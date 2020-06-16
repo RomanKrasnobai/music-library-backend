@@ -13,4 +13,7 @@ export class MusicInstrumentsEntity extends BaseEntity {
 
   @Column()
   category: string;
+
+  @Column()
+  image: string;
 }

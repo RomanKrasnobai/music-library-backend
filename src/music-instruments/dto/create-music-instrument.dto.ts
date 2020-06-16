@@ -9,4 +9,7 @@ export class CreateMusicInstrumentDto {
 
   @IsNotEmpty()
   category: string;
+
+  @IsNotEmpty()
+  image: string;
 }
