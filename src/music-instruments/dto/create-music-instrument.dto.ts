@@ -8,7 +8,7 @@ export class CreateMusicInstrumentDto {
   description: string;
 
   @IsNotEmpty()
-  category: string;
+  category_id: number;
 
   @IsNotEmpty()
   image: string;
