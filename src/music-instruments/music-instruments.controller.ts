@@ -14,8 +14,13 @@ export class MusicInstrumentsController {
   }
 
   @Get('/:id')
-  async getMusicInstrument(@Param('id', ParseIntPipe)id: number):Promise<MusicInstrumentsEntity> {
-    return this.musicInstrumentsService.getMusicInstrument(id);
+  async getMusicInstrumentById(@Param('id', ParseIntPipe)id: number):Promise<MusicInstrumentsEntity> {
+    return this.musicInstrumentsService.getMusicInstrumentById(id);
+  }
+
+  @Get('/:category')
+  async getMusicInstrumentByCategory(@Param('category')category: number) {
+    return this.musicInstrumentsService.getMusicInstrumentByCategory(category);
   }
 
   @Post()
