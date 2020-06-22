@@ -1,4 +1,5 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { MusicInstrumentsEntity } from '../music-instruments/music-instruments.entity';
 
 @Entity()
 export class CategoriesEntity extends BaseEntity {
@@ -7,4 +8,7 @@ export class CategoriesEntity extends BaseEntity {
 
   @Column()
   name: string;
+
+  @OneToMany(type => MusicInstrumentsEntity, instrument => instrument.category)
+  musicInstruments: MusicInstrumentsEntity[]
 }

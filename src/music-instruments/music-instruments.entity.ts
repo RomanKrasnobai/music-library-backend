@@ -1,4 +1,5 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { CategoriesEntity } from '../categories/categories.entity';
 
 @Entity()
 export class MusicInstrumentsEntity extends BaseEntity {
@@ -16,4 +17,7 @@ export class MusicInstrumentsEntity extends BaseEntity {
 
   @Column()
   image: string;
+
+  @ManyToOne(type => CategoriesEntity, category => category.musicInstruments)
+  category: CategoriesEntity;
 }

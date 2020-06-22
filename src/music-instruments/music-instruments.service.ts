@@ -12,7 +12,7 @@ export class MusicInstrumentsService {
   ) {}
 
   async getAllMusicInstruments():Promise<MusicInstrumentsEntity[]> {
-    return await this.musicInstrumentsRepository.find();
+    return await this.musicInstrumentsRepository.find({ relations: ["category"] });
   }
 
   async getMusicInstrumentById(id: number):Promise<MusicInstrumentsEntity> {
