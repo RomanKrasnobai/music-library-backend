@@ -10,5 +10,5 @@ export class CategoriesEntity extends BaseEntity {
   name: string;
 
   @OneToMany(type => MusicInstrumentsEntity, instrument => instrument.category)
-  musicInstruments: MusicInstrumentsEntity[]
+  musicInstruments: MusicInstrumentsEntity[];
 }
