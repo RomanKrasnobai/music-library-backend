@@ -9,14 +9,12 @@ export class UserRepository extends Repository<UserEntity> {
   async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
     const { username, password } = authCredentialsDto;
 
-    // const salt = await bcrypt.genSalt();
+    const salt = await bcrypt.genSalt();
     const user = new UserEntity();
-    user.username = username;
-    user.password = password;
 
-    // user.salt = salt;
-    // user.username = username;
-    // user.password = await this.hashPassword(password, user.salt);
+    user.salt = salt;
+    user.username = username;
+    user.password = await this.hashPassword(password, user.salt);
 
     try {
       await user.save();
@@ -30,18 +28,18 @@ export class UserRepository extends Repository<UserEntity> {
     }
   }
 
-  // async validateUserPassword(authCredentialsDto: AuthCredentialsDto): Promise<string> {
-  //   const { username, password } = authCredentialsDto;
-  //   const user = await this.findOne({ username });
-  //
-  //   if (user && await user.validatePassword(password)) {
-  //     return user.username;
-  //   } else {
-  //     return null;
-  //   }
-  // }
-  //
-  // private async hashPassword(password: string, salt: string): Promise<string> {
-  //   return bcrypt.hash(password, salt);
-  // }
+  async validateUserPassword(authCredentialsDto: AuthCredentialsDto): Promise<string> {
+    const { username, password } = authCredentialsDto;
+    const user = await this.findOne({ username });
+
+    if (user && await user.validatePassword(password)) {
+      return user.username;
+    } else {
+      return null;
+    }
+  }
+
+  private async hashPassword(password: string, salt: string): Promise<string> {
+    return bcrypt.hash(password, salt);
+  }
 }

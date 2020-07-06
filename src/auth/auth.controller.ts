@@ -12,8 +12,8 @@ export class AuthController {
     // console.log(authCredentialsDto);
   }
 
-  // @Post('/signin')
-  // async signIn(@Body(ValidationPipe) authCredentialsDto: AuthCredentialsDto): Promise< { accessToken: string }> {
-  //   return this.authService.signIn(authCredentialsDto);
-  // }
+  @Post('/signin')
+  async signIn(@Body(ValidationPipe) authCredentialsDto: AuthCredentialsDto): Promise< { accessToken: string }> {
+    return this.authService.signIn(authCredentialsDto);
+  }
 }

@@ -17,15 +17,15 @@ export class AuthService {
     return this.userRepository.signUp(authCredentialsDto);
   }
 
-  // async signIn(authCredentialsDto: AuthCredentialsDto): Promise<{ accessToken: string }> {
-  //   const username = await this.userRepository.validateUserPassword(authCredentialsDto);
-  //   if (!username) {
-  //     throw new UnauthorizedException('Invalid credentials');
-  //   }
-  //
-  //   const payload: JwtPayloadInterface = { username };
-  //   const accessToken = await this.jwtService.sign(payload);
-  //
-  //   return {accessToken};
-  // }
+  async signIn(authCredentialsDto: AuthCredentialsDto): Promise<{ accessToken: string }> {
+    const username = await this.userRepository.validateUserPassword(authCredentialsDto);
+    if (!username) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+
+    const payload: JwtPayloadInterface = { username };
+    const accessToken = await this.jwtService.sign(payload);
+
+    return {accessToken};
+  }
 }
