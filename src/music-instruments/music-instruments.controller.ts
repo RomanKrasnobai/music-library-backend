@@ -5,8 +5,7 @@ import { CreateMusicInstrumentDto } from './dto/create-music-instrument.dto';
 
 @Controller('music-instruments')
 export class MusicInstrumentsController {
-  constructor(private musicInstrumentsService: MusicInstrumentsService) {
-  }
+  constructor(private musicInstrumentsService: MusicInstrumentsService) { }
 
   @Get()
   async getMusicInstruments():Promise<MusicInstrumentsEntity[]> {
