@@ -2,7 +2,7 @@ import { IsOptional, IsString } from 'class-validator';
 
 export class CreateUserProfileDto {
   @IsOptional()
-  photo: any;
+  photo: string;
 
   @IsString()
   firstName: string;

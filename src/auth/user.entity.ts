@@ -7,7 +7,7 @@ export class UserEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({nullable: true})
   username: string;
 
   @Column()
@@ -16,7 +16,7 @@ export class UserEntity extends BaseEntity {
   @Column()
   password: string;
 
-  @Column()
+  @Column({nullable: true})
   salt: string;
 
   async validatePassword(password: string): Promise<boolean> {
