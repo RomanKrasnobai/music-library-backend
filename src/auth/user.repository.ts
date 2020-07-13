@@ -14,6 +14,7 @@ export class UserRepository extends Repository<UserEntity> {
 
     user.salt = salt;
     user.username = username;
+    user.name = username;
     user.password = await this.hashPassword(password, user.salt);
 
     try {
